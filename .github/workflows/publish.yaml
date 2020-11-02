@@ -58,5 +58,14 @@ jobs:
           asset_path: ./bin/release-it-amd64
           asset_name: release-it-amd64
           asset_content_type: application/octet-stream
+      - name: Upload release binary
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.get_release.outputs.upload_url }}
+          asset_path: ./bin/release-it-darwin
+          asset_name: release-it-darwin
+          asset_content_type: application/octet-stream
 
 # steps.get_tag.outputs.TAG
