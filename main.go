@@ -3,10 +3,10 @@ package main
 import "fmt"
 
 var (
-	Version string
-	Commit  string
+	Version   string
+	GitCommit string
 )
 
 func main() {
-	fmt.Println(Version, Commit)
+	fmt.Printf("release-it: %s, commit: %s\n", Version, Commit)
 }
