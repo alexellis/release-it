@@ -14,15 +14,10 @@ jobs:
           fetch-depth: 1
       - name: Make all
         run: make all
-      # - name: Get TAG
-      #   id: get_tag
-      #   run: echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
       - name: Upload release binaries
         uses: alexellis/upload-assets@0.1.17
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          asset_paths: '["./bin/release-it-darwin", "./bin/release-it-amd64"]'
+          asset_paths: '["./bin/release-it-darwin", "./bin/release-it-amd64", "./bin/release-it-arm", "./bin/release-it-arm64", "./bin/release-it.exe"]'
           asset_content_type: application/octet-stream
-
-# steps.get_tag.outputs.TAG
