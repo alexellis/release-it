@@ -14,11 +14,11 @@ jobs:
           fetch-depth: 1
       - name: Make all
         run: make all
-      - name: Get TAG
-        id: get_tag
-        run: echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
+      # - name: Get TAG
+      #   id: get_tag
+      #   run: echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
       - name: Upload release binaries
-        uses: alexellis/upload-assets@0.1.10
+        uses: alexellis/upload-assets@0.1.11
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
