@@ -18,11 +18,11 @@ jobs:
         id: get_tag
         run: echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
       - name: Upload release binaries
-        uses: alexellis/upload-assets@0.1.8
+        uses: alexellis/upload-assets@0.1.9
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          asset_paths: '["./bin/release-it-darwin", "./bin/release-it-arm","./bin/release-it-arm64"]'
+          asset_paths: '["./bin/release-it-darwin", "./bin/release-it-amd64"]'
           asset_content_type: application/octet-stream
 
 # steps.get_tag.outputs.TAG
