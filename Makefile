@@ -16,6 +16,7 @@ gofmt:
 
 .PHONY: dist
 dist:
+	mkdir -p bin/
 	echo test > bin/release-it-amd64
 	echo test > bin/release-it-darwin
 	# CGO_ENABLED=0 GOOS=linux go build -mod=vendor -a -ldflags $(LDFLAGS) -installsuffix cgo -o bin/release-it-amd64
