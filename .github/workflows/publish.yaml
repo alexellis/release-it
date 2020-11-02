@@ -18,7 +18,7 @@ jobs:
         id: get_tag
         run: echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
       - name: Upload release binaries
-        uses: alexellis/upload-assets@0.1.9
+        uses: alexellis/upload-assets@0.1.10
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
