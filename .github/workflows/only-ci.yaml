@@ -1,9 +1,10 @@
-name: publish
+name: ci-only
 
 on:
   push:
-    tags:
-      - '*'
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -14,9 +15,3 @@ jobs:
           fetch-depth: 1
       - name: Make all
         run: make all
-      - name: Get TAG
-        id: get_tag
-        run: echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
-
-
-# steps.get_tag.outputs.TAG
