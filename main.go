@@ -8,5 +8,5 @@ var (
 )
 
 func main() {
-	fmt.Printf("release-it: %s, commit: %s\n", Version, Commit)
+	fmt.Printf("release-it: %s, commit: %s\n", Version, GitCommit)
 }
