@@ -1,4 +1,4 @@
-FROM --platform=${BUILDPLATFORM:-linux/amd64} golang:1.15 as builder
+FROM --platform=${BUILDPLATFORM:-linux/amd64} golang:1.19 as builder
 
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
@@ -21,7 +21,7 @@ RUN CGO_ENABLED=${CGO_ENABLED} GOOS=${TARGETOS} GOARCH=${TARGETARCH} \
 RUN CGO_ENABLED=${CGO_ENABLED} GOOS=${TARGETOS} GOARCH=${TARGETARCH} \
   go build -ldflags \
   "-s -w -X 'main.Version=${Version}' -X 'main.GitCommit=${GitCommit}'" \
-  -a -installsuffix cgo -o /usr/bin/release-it .
+   -o /usr/bin/release-it .
 
 FROM --platform=${BUILDPLATFORM:-linux/amd64} gcr.io/distroless/static:nonroot
 WORKDIR /
