@@ -23,7 +23,7 @@ RUN CGO_ENABLED=${CGO_ENABLED} GOOS=${TARGETOS} GOARCH=${TARGETARCH} \
   "-s -w -X 'main.Version=${Version}' -X 'main.GitCommit=${GitCommit}'" \
    -o /usr/bin/release-it .
 
-FROM --platform=${BUILDPLATFORM:-linux/amd64} gcr.io/distroless/static:nonroot
+FROM --platform=${TARGETPLATFORM:-linux/amd64} gcr.io/distroless/static:nonroot
 WORKDIR /
 COPY --from=builder /usr/bin/release-it /
 USER nonroot:nonroot
